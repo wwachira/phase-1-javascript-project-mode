@@ -1,79 +1,74 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const clothingContainer = document.getElementById("clothing-container");
+body {
+    margin: 0;
+    width: 100%;
+}
 
-    const db = [
-        {
-            id: 1,
-            category: "all",
-            name: "Men's Shirt",
-            price: 2000,
-            image: "https://via.placeholder.com/150"
-        },
-        {
-            id: 2,
-            category: "men",
-            name: "Men's Pants",
-            price: 3000,
-            image: "https://via.placeholder.com/150"
-        },
-        {
-            id: 3,
-            category: "women",
-            name: "Women's Shirt",
-            price: 1500,
-            image: "https://via.placeholder.com/150"
-        },
-        {
-            id: 4,
-            category: "women",
-            name: "Women's Dress",
-            price: 4000,
-            image: "https://via.placeholder.com/150"
-        },
-        {
-            id: 5,
-            category: "children",
-            name: "Children's T-Shirt",
-            price: 1000,
-            image: "https://via.placeholder.com/150"
-        },
-        {
-            id: 6,
-            category: "children",
-            name: "Children's Pants",
-            price: 1500,
-            image: "https://via.placeholder.com/150"
-        }
-    ];
+span {
+    display: inline-block;
+}
 
-    const displayClothing = (clothes) => {
-        clothingContainer.innerHTML = "";
-        clothes.forEach(clothing => {
-            const div = document.createElement("div");
-            div.classList.add("card", "mb-4");
-            div.innerHTML = `
-                <img src="${clothing.image}" class="card-img-top" alt="${clothing.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${clothing.name}</h5>
-                    <p class="card-text">KSh ${clothing.price}</p>
-                </div>
-            `;
-            clothingContainer.appendChild(div);
-        });
-    };
+.search {
+    width: 5%;
+    display: inline;
+    border-left: none;
+    padding: 3px;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
 
-    const filterClothing = (category) => {
-        const filtered = db.filter(clothing => clothing.category === category || category === "all");
-        displayClothing(filtered);
-    };
-    filterClothing("all");
+#input {
+    padding: 3px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 40%;
+}
 
-    const navItems = document.querySelectorAll("nav .navbar-nav li a");
-    navItems.forEach(item => {
-        item.addEventListener("click", (e) => {
-            e.preventDefault();
-            const category = e.target.text;
-            filterClothing(category);
-        });
-    });
-});
+form::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+img {
+    width: 30%;
+    height: 270px;
+    display: inline;
+}
+
+p {
+    border: 2px solid white;
+    width: 30%;
+    padding: 4px;
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 18px;
+    position: relative;
+    bottom: 20px;
+    box-shadow: 2px 2px 5px black;
+}
+
+div {
+    transition: ease-out .3s;
+    width: 80%;
+}
+
+div:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+nav {
+    width: 500px;
+    left: 500px;
+    position: relative;
+}
+
+form {
+    position: relative;
+    left: 25%;
+    margin: 10px;
+}
+</style>
