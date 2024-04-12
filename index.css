@@ -1,0 +1,79 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const clothingContainer = document.getElementById("clothing-container");
+
+    const db = [
+        {
+            id: 1,
+            category: "all",
+            name: "Men's Shirt",
+            price: 2000,
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            id: 2,
+            category: "men",
+            name: "Men's Pants",
+            price: 3000,
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            id: 3,
+            category: "women",
+            name: "Women's Shirt",
+            price: 1500,
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            id: 4,
+            category: "women",
+            name: "Women's Dress",
+            price: 4000,
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            id: 5,
+            category: "children",
+            name: "Children's T-Shirt",
+            price: 1000,
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            id: 6,
+            category: "children",
+            name: "Children's Pants",
+            price: 1500,
+            image: "https://via.placeholder.com/150"
+        }
+    ];
+
+    const displayClothing = (clothes) => {
+        clothingContainer.innerHTML = "";
+        clothes.forEach(clothing => {
+            const div = document.createElement("div");
+            div.classList.add("card", "mb-4");
+            div.innerHTML = `
+                <img src="${clothing.image}" class="card-img-top" alt="${clothing.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${clothing.name}</h5>
+                    <p class="card-text">KSh ${clothing.price}</p>
+                </div>
+            `;
+            clothingContainer.appendChild(div);
+        });
+    };
+
+    const filterClothing = (category) => {
+        const filtered = db.filter(clothing => clothing.category === category || category === "all");
+        displayClothing(filtered);
+    };
+    filterClothing("all");
+
+    const navItems = document.querySelectorAll("nav .navbar-nav li a");
+    navItems.forEach(item => {
+        item.addEventListener("click", (e) => {
+            e.preventDefault();
+            const category = e.target.text;
+            filterClothing(category);
+        });
+    });
+});
