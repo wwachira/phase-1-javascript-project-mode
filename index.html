@@ -1,105 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMART Kitchen SELECT MINI PROJECT</title>
-    <link rel="stylesheet" href = "index.css"/>
-    <title>Smart Kitchen</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-</div>
-<p class="placeholder-glow">
-    <span class="placeholder col-12"></span>
-  </p>
-
-  <nav>
-    <button id="All">All</button>
-    <button id="dough">Doughnuts</button>
-    <button id="sweetbutton">Sweets</button>
-    <button id="pizzabutton">Pizza</button>
-    <button id="cakebutton">Cake</button>
-</nav>
-<form>
-    <input type="text" placeholder="search" id="input">
-    <button class="search" id="searchbutton">&#x27A1;</button>
-</form>
-<script>
-    var input = document.getElementById('input')
-    const button = document.getElementById('searchbutton')
-
-    function functionnaire(item) {
-        item.style.display = "none"
-    }
-
-    function functionnaireOpposite(item) {
-        item.style.display = "inline-block"
-    }
-
-    button.addEventListener("click", function(event) {
-        if (input.value.toUpperCase() === 'CAKES') {
-            cake.forEach(functionnaireOpposite)
-            sweet.forEach(functionnaire)
-            pizza.forEach(functionnaire)
-            dn.forEach(functionnaire)
-            event.preventDefault()
-        } else if (input.value.toUpperCase() === 'DOUGHNUTS') {
-            event.preventDefault()
-            dn.forEach(functionnaireOpposite)
-            sweet.forEach(functionnaire)
-            cake.forEach(functionnaire)
-            pizza.forEach(functionnaire)
-        } else if (input.value.toUpperCase() === 'SWEETS') {
-            event.preventDefault()
-            sweet.forEach(functionnaireOpposite)
-            dn.forEach(functionnaire)
-            cake.forEach(functionnaire)
-            pizza.forEach(functionnaire)
-        } else if (input.value.toUpperCase() === 'PIZZA') {
-            event.preventDefault()
-            pizza.forEach(functionnaireOpposite)
-            dn.forEach(functionnaire)
-            cake.forEach(functionnaire)
-            sweet.forEach(functionnaire)
-        }
-        return event.preventDefault()
-    })
-</script>
-<div class="Dougnut1" id="Doughnut">
-    <img src="https://prods3.imgix.net/images/articles/2017_04/Feature-Glazed-Doughnuts.jpg">
-    <p>Glazed Doughnuts</p><span>$4.99</span>
-</div>
-<div class="Pizza" id="Pizza">
-    <img src="https://www.kitchensanctuary.com/wp-content/uploads/2020/07/Chicken-Tikka-Skewers-square-FS-77.jpg">
-    <p>Chicken Tikka</p><span>$7.99</span>
-</div>
-<div class="Sweet1" id="Sweet">
-    <img src="https://shoponclick.ng/wp-content/uploads/2020/08/smarties-200.jpg">
-    <p>Smarties</p><span>$2.99</span>
-</div>
-<div class="Cake" id="Cake">
-    <img src="https://www.biggerbolderbaking.com/wp-content/uploads/2017/09/1C5A0996.jpg">
-    <p>Cupcake</p><span>$1.99</span>
-</div>
-<div class="Dougnut2" id="Doughnut">
-    <img src="https://i2.wp.com/www.aimadeitforyou.com/wp-content/uploads/2016/04/fullsizeoutput_5f68.jpeg?fit=750%2C500&ssl=1">
-    <p>Doughnut</p><span>$3.49</span>
-</div>
-<div class="Sweet2" id="Sweet">
-    <img src="https://images.theconversation.com/files/99753/original/image-20151026-18435-11ee0q4.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip">
-    <p>Sugar</p><span>$5</span>
-</div>
-
-<script>
-    const sweet = document.querySelectorAll("#Sweet")
-    const dn = document.querySelectorAll("#Doughnut")
-    const cake = document.querySelectorAll("#Cake")
-    const pizza = document.querySelectorAll("#Pizza")
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'/>
+  <title>Document</title>
   
+  <link rel='stylesheet' href='index.css'/>
+</head>
+<body>
+  <div id='main'>
 
-    <script src='js/index.js'></script>
+    <h2>GitHub Search</h2>
 
-    
-</p>
+    <form id='github-form'>
+      <input id='search' type='text' name='search'>
+      <input type='submit' name='submit'/>
+    </form>
+
+    <div id='github-container'>
+      <ul id='user-list'>
+
+      </ul>
+
+      <ul id='repos-list'>
+
+      </ul>
+    </div>
+
+  </div>
+  <script src='js/index.js'></script>
 </body>
 </html>

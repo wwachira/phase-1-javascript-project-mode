@@ -1,38 +1,49 @@
-functionnaireOpposite(item) {
-    item.style.display = "inline-block"
+# GitHub Search App
+
+//This IS a tool to search for users on github using Javascript.
+const form = document.getElementById('github-form');
+const userList = document.getElementById('user-list');
+const reposList = document.getElementById('repos-list');
+
+form.addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const searchValue = document.getElementById('search').value.trim();
+  if (!searchValue) return;
+
+  const users = await searchUsers(searchValue);
+  displayUsers(users);
+});
+
+async function searchUsers(username) {
+  const response = await fetch(`https://api.github.com/search/users?q=${username}`);
+  const data = await response.json();
+  return data.items;
 }
 
-document.getElementById('dough').addEventListener("click", function() {
-    dn.forEach(functionnaireOpposite)
-    sweet.forEach(functionnaire)
-    cake.forEach(functionnaire)
-    pizza.forEach(functionnaire)
-})
+async function getUserRepos(username) {
+  const response = await fetch(`https://api.github.com/users/${username}/repos`);
+  const data = await response.json();
+  return data;
+}
 
-document.getElementById('sweetbutton').addEventListener("click", function() {
-    sweet.forEach(functionnaireOpposite)
-    dn.forEach(functionnaire)
-    cake.forEach(functionnaire)
-    pizza.forEach(functionnaire)
-})
+function displayUsers(users) {
+  userList.innerHTML = '';
+  users.forEach(user => {
+    const li = document.createElement('li');
+    li.textContent = user.login;
+    li.addEventListener('click', async function() {
+      const repos = await getUserRepos(user.login);
+      displayRepos(repos);
+    });
+    userList.appendChild(li);
+  });
+}
 
-document.getElementById('pizzabutton').addEventListener("click", function() {
-    pizza.forEach(functionnaireOpposite)
-    sweet.forEach(functionnaire)
-    cake.forEach(functionnaire)
-    dn.forEach(functionnaire)
-})
-
-document.getElementById('cakebutton').addEventListener("click", function() {
-    cake.forEach(functionnaireOpposite)
-    sweet.forEach(functionnaire)
-    dn.forEach(functionnaire)
-    pizza.forEach(functionnaire)
-})
-
-document.getElementById('All').addEventListener("click", function() {
-    sweet.forEach(functionnaireOpposite)
-    dn.forEach(functionnaireOpposite)
-    pizza.forEach(functionnaireOpposite)
-    cake.forEach(functionnaireOpposite)
-})
+function displayRepos(repos) {
+  reposList.innerHTML = '';
+  repos.forEach(repo => {
+    const li = document.createElement('li');
+    li.textContent = repo.name;
+    reposList.appendChild(li);
+  });
+}
