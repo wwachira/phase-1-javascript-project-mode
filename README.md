@@ -1,5 +1,5 @@
 # Phase 1 Project Guidelines
-
+https://lwachirajavascriptproject.netlify.app/
 ## Learning Goals
 
 - Design and architect features across a frontend
@@ -185,3 +185,6 @@ You can consult the [json-server docs][] for more information.
 [json-server]: https://www.npmjs.com/package/json-server
 [event-listeners]: https://developer.mozilla.org/en-US/docs/Web/Events
 [APIs]:  https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
+
+Please find my hosted link as follows:
+https://lwachirajavascriptproject.netlify.app/
