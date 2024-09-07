@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://source.unsplash.com/random/1600x900/?floral,nature");
+  background-image: url("/assets/good-waves.gif"); /* Direct GIF URL */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
