@@ -1,5 +1,5 @@
 # Phase 1 Project Guidelines
-https://lwachirajavascriptproject.netlify.app/
+https://githubsearchbylyzah.netlify.app//
 ## Learning Goals
 
 - Design and architect features across a frontend
